@@ -1,15 +1,29 @@
 <template name="home">
-	<div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Action <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-	hello
+	<div class="container">
+		<div class="col-xs-4">
+		</div>
+		<div class="col-xs-4">
+				{{>signup}}
+		</div>
+		<div class="col-xs-4">
+		</div>
+	</div>
+</template>
+<template name="success">
+
+</template>
+<template name="signup">
+	<form class="navbar-form" role="search">
+		<div class="form-group full-width">
+			<div class="quarter-width padding-top">
+				<input type="text" class="form-control wire" placeholder="Phone Number">
+			</div>
+			<div class="quarter-width padding-top">
+				<a href="#" class="btn btn-success full-width">Twitter</a>
+			</div>
+			<div class="quarter-width padding-top">
+				<a href="#" class="btn btn-info full-width">Facebook</a>
+			</div>
+		</div>
+	</form>
 </template>
