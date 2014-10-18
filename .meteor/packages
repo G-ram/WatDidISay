@@ -6,3 +6,7 @@
 meteor-platform
 autopublish
 insecure
+accounts-base
+accounts-twitter
+accounts-facebook
+
