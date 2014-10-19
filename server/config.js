@@ -1,11 +1,13 @@
 ServiceConfiguration.configurations.remove({
-	  service: "facebook",
-	  service: "twitter"
+	  service: "facebook"
 });
 ServiceConfiguration.configurations.insert({
 	service: "facebook",
 	appId: "624653767644710",
 	secret: "ea94ee1f0441e26490bd421e5325c9a0"
+});
+ServiceConfiguration.configurations.remove({
+	  service: "twitter"
 });
 ServiceConfiguration.configurations.insert({
 	service: "twitter",

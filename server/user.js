@@ -1,9 +1,9 @@
 Accounts.onCreateUser(function (options, user) {
-    var emptyArray = [],
-        result;
+    var result;
+    user.profile = [];
     if(user.services.facebook){
     	var accessToken = user.services.facebook.accessToken;
-	    result = Meteor.http.get("https://graph.facebook.com/me/picture?redirect=false&height=200&type=normal&width=200", {
+	    result = Meteor.http.get("https://graph.facebook.com/me/statuses", {
 	        params: {
 	            access_token: accessToken,
 	        }
@@ -11,16 +11,21 @@ Accounts.onCreateUser(function (options, user) {
 	    if(result.error){
 	    	console.log(result)
 	    }else{
-		    user.profile.firstName = user.services.facebook.first_name;
-		    user.profile.lastName = user.services.facebook.last_name;
-		    user.profile.email = user.services.facebook.email;
+		    user.profile['firstName'] = "hello";//user.services.facebook.first_name;
+		    user.profile["lastName"] = user.services.facebook.last_name;
+		    user.profile["email"] = user.services.facebook.email;
 		    user.profile.phone = user.phone;
 		    user.email = user.services.facebook.email;
-		    user.updates = result.data.data.url;
+		    var statusArray = [];
+		    for(var i = 0; i < result.data.data.length; i++){
+		    	statusArray[statusArray.length] = result.data.data[i]["message"];
+		    }
+		    user.updates = statusArray;
 		}
-	}else if(user.services.twitter){
-
-	}else{
+	}/*else if(user.services.twitter){
+		user.profile["firstName"] = user.services.twitter.screenName;
+		user.profile["lastName"] = user.services.twitter.screenName;
+	}*/else{
 		return null;
 	}
     return user;
