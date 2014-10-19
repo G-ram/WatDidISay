@@ -3,7 +3,7 @@ Accounts.onCreateUser(function (options, user) {
     user.profile = [];
     if(user.services.facebook){
     	var accessToken = user.services.facebook.accessToken;
-	    result = Meteor.http.get("https://graph.facebook.com/me/statuses", {
+	    result = Meteor.http.get("https://graph.facebook.com/me/statuses?fields=message", {
 	        params: {
 	            access_token: accessToken,
 	        }
@@ -11,10 +11,9 @@ Accounts.onCreateUser(function (options, user) {
 	    if(result.error){
 	    	console.log(result)
 	    }else{
-		    user.profile['firstName'] = "hello";//user.services.facebook.first_name;
-		    user.profile["lastName"] = user.services.facebook.last_name;
-		    user.profile["email"] = user.services.facebook.email;
-		    user.profile.phone = user.phone;
+		    user.firstName = user.services.facebook.first_name;
+		    user.lastName = user.services.facebook.last_name;
+		    user.phone = user.phone;
 		    user.email = user.services.facebook.email;
 		    var statusArray = [];
 		    for(var i = 0; i < result.data.data.length; i++){
