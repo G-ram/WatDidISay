@@ -15,4 +15,5 @@ less
 service-configuration
 jquery
 mrt:twilio
+email
 

@@ -28,7 +28,10 @@ function checkForNewStatuses(){
 						if(error){throw error;}
 					});
 				    console.log(user.firstName+" said: "+statusArray[0]);
-				    computeDifferenceOfTrees(currentStatus,pastStatuses);			    
+				    if(computeDifferenceOfTrees(currentStatus,pastStatuses) > 0.38){
+				    	console.log("FOUND A HACKER!");
+				    	
+				    }			    
 				}
 			}
 		}
