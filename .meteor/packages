@@ -12,4 +12,6 @@ accounts-facebook
 iron:router
 grokbot:bootstrap-flatly
 less
+service-configuration
+jquery
 

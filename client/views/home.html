@@ -4,20 +4,18 @@
 		<div class="col-xs-4">
 		</div>
 		<div class="col-xs-4">
+        {{> notification}}
 				{{>signup}}
 		</div>
 		<div class="col-xs-4">
 		</div>
 	</div>
 </template>
-<template name="success">
-
-</template>
 <template name="signup">
       <img class="img-responsive" style="padding:30px;" src="http://localhost:3000/logo.png"/>
   		<div class="form-group full-width">
   			<div class="quarter-width padding-top">
-  				<input type="telephone" class="form-control wire full-width" placeholder="Phone Number" id="signup-telephone-input">
+  				<input type="telephone" class="form-control wire full-width white-placeholder" placeholder="Phone Number" id="signup-telephone-input">
   			</div>
   			<div class="quarter-width padding-top">
   				<a href="#" class="btn btn-success full-width" id="signup-twitter-button">Twitter</a>
